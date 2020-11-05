@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title>Trivia Game</title>
+    <script>
+      var point = 0;
+      var questionCount = 0;
+      var aha = "You got a " + point + " out of 3.";
+
+      function gradeQuiz()
+      {
+        if(questionCount == 0)
+        {
+          var yuh = document.getElementById('answer').value;
+          if(yuh.toLowerCase() == "switzerland")
+          {
+            point = point + 1;
+          }
+
+          document.getElementById("question").innerHTML = "What was the first toy to be advertised on television?";
+          document.getElementById("fin").style.visibility = "hidden";
+        }
+
+
+        if(questionCount == 1)
+        {
+          var yuh = document.getElementById('answer').value;
+          if(yuh.toLowerCase() == "mr. potato head")
+          {
+            point = point + 1;
+          }
+
+          document.getElementById("question").innerHTML = "Which country invented tea?";
+          document.getElementById("fin").style.visibility = "hidden";
+        }
+
+
+        if(questionCount == 2)
+        {
+          var yuh = document.getElementById('answer').value;
+          if(yuh.toLowerCase() == "china")
+          {
+            point = point + 1;
+          }
+          document.getElementById("submit").style.visibility = "visible";
+          end();
+        }
+          questionCount = questionCount + 1;
+      }
+
+      function end()
+        {
+          if(questionCount == 3)
+          document.getElementById("submit").style.display = "none";
+          document.getElementById("question").style.visibility = "hidden";
+          document.getElementById("submit").style.visibility = "hidden";
+          document.getElementById("answer").style.visibility = "hidden";
+          document.getElementById("restart").style.visibility = "visible";
+          document.getElementById("fin").innerHTML = aha;
+          document.getElementById("fin").style.visibility = "visible";
+          document.getElementById("sakyo").style.visibility = "visible";
+
+          // hide and reveal stuff
+        }
+      function restart()
+      {
+        location.reload();
+      }
+
+
+    </script>
+
+    <style>
+      #restart{
+        visibility: hidden;
+      }
+      body{
+        font-family: monospace;
+        background-image: url("flowerflower.jpg");
+        height: 97%;
+        width: 99%;
+        color: white;
+      }
+      #sakyo{
+        font-family: cursive;
+      }
+      #answer{
+        background-color: #1F2931;
+        color: white;
+      }
+      #restart{
+        background-color: #1F2931;
+        color: white;
+      }
+      #submit{
+        background-color: #1F2931;
+        color: white;
+      }
+      #hihi{
+        font-size: 40px;
+        text-align: center;
+        text-shadow: 2px 2px 5px #cce6ff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2 id = "hihi">Fun Quiz!<h2>
+    <span id = "question">Which country consumes the most chocolate per capita?</span>
+    <input type="text" id="answer">
+    <input type="button" value="Submit answer" onclick="gradeQuiz()" id="submit">
+    <input type="button" value = "Play again" onclick="restart()" id="restart" style="visibility:hidden">
+    <!-- hide or reveal -->
+    <br><span id = "fin"></span><br>
+    <span id ="sakyo" style="visibility:hidden"><br>Answer Key<br><br>Answer to Question 1 = Switzerland<br>Answer to Question 2 = Mr. Potato Head<br>Answer to Question 3 = China</span>
+  </body>
+</html>
